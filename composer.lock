@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa322c53454393ed775cfe4807d54a50",
+    "content-hash": "016bf4d1d5f50670500108470979ba4d",
     "packages": [
         {
             "name": "brick/math",
@@ -1860,6 +1860,42 @@
                 }
             ],
             "time": "2023-06-21T08:46:11+00:00"
+        },
+        {
+            "name": "nazzgar/b2bpanel-models",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nazzgar/b2bpanel-models.git",
+                "reference": "3654f971400a631b664a0604fd8eff52b7a84290"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nazzgar/b2bpanel-models/zipball/3654f971400a631b664a0604fd8eff52b7a84290",
+                "reference": "3654f971400a631b664a0604fd8eff52b7a84290",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "B2BPanel\\SharedModels\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mateusz Kozłowski",
+                    "email": "mateuszkozlowski0@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Models for b2bpanel",
+            "homepage": "https://github.com/nazzgar",
+            "support": {
+                "source": "https://github.com/nazzgar/b2bpanel-models/tree/main",
+                "issues": "https://github.com/nazzgar/b2bpanel-models/issues"
+            },
+            "time": "2023-07-22T17:26:07+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -7943,7 +7979,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nazzgar/b2bpanel-models": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

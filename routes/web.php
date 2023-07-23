@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dd(\B2BPanel\SharedModels\Contractor::all());
     return view('welcome');
 });
