@@ -15,8 +15,9 @@ return new class extends Migration
             $table->string('logo')->unique();
             $table->string('nazwa');
             $table->string('nip');
-            $table->string('regon');
-            $table->timestamps();
+            $table->string('regon')->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
         });
     }
 

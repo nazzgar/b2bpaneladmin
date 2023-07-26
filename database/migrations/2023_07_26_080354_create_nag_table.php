@@ -11,15 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //TODO: dodaj daty dowodu
         Schema::create('nag', function (Blueprint $table) {
             $table->integer('nagid')->unique();
             $table->string('rd', 8);
             $table->string('numer', 100);
-            $table->string('numerdok', 100);
+            $table->string('numerdok', 100)->nullable();
             $table->string('opis', 255)->nullable();
+            $table->string('logo');
+            $table->string('logop');
             $table->foreign('logo')->references('logo')->on('contractors');
             $table->foreign('logop')->references('logo')->on('contractors');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
         });
     }
 
