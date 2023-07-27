@@ -30,6 +30,7 @@ return new class extends Migration
             $table->integer('vat_suma');
             $table->string('PD_Wydawnictwo', 255);
             $table->foreign('PD_Wydawnictwo')->references('grupa')->on('publishers');
+            $table->string('PD_typoferty', 100);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
             $table->unique(['nagid', 'lp']);
