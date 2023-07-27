@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('logop')->references('logo')->on('contractors');
             $table->date('data')->nullable();
             $table->date('datasprz')->nullable();
+            $table->tinyInteger('kor');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate()->nullable();
         });
