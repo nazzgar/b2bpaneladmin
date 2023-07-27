@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //TODO: dodaj daty dowodu
-        Schema::create('nag', function (Blueprint $table) {
+        Schema::create('nags', function (Blueprint $table) {
             $table->integer('nagid')->unique();
             $table->string('rd', 8);
             $table->string('numer', 100);
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nag');
+        Schema::dropIfExists('nags');
     }
 };
