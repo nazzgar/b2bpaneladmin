@@ -2676,15 +2676,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nazzgar/b2bpanel-models.git",
-                "reference": "71731103bac7077f70bd9b6e953494759e46961e"
+                "reference": "b04cd4b19e43d9bc93fa61bc6422981439fc8047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nazzgar/b2bpanel-models/zipball/71731103bac7077f70bd9b6e953494759e46961e",
-                "reference": "71731103bac7077f70bd9b6e953494759e46961e",
+                "url": "https://api.github.com/repos/nazzgar/b2bpanel-models/zipball/b04cd4b19e43d9bc93fa61bc6422981439fc8047",
+                "reference": "b04cd4b19e43d9bc93fa61bc6422981439fc8047",
                 "shasum": ""
             },
             "require": {
+                "akaunting/laravel-money": "^4.0.1",
                 "illuminate/database": "^10.0",
                 "php": "^8.0"
             },
@@ -2708,7 +2709,7 @@
                 "source": "https://github.com/nazzgar/b2bpanel-models/tree/main",
                 "issues": "https://github.com/nazzgar/b2bpanel-models/issues"
             },
-            "time": "2023-07-28T06:33:00+00:00"
+            "time": "2023-07-28T12:24:49+00:00"
         },
         {
             "name": "nesbot/carbon",
