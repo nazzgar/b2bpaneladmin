@@ -12,11 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lins', function (Blueprint $table) {
-<<<<<<< HEAD
             $table->bigInteger('id', true, false);
-=======
-            $table->id();
->>>>>>> 322e07c (fix id column in migration)
             $table->integer('nagid');
             $table->foreign('nagid')->references('nagid')->on('nags');
             $table->integer('lp');
