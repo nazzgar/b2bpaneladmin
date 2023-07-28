@@ -23,6 +23,10 @@ class ContractorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $modelLabel = 'Kontrahent';
+
+    protected static ?string $pluralModelLabel = 'Kontrahenci';
+
     public static function form(Form $form): Form
     {
         return $form

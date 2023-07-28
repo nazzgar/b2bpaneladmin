@@ -24,6 +24,10 @@ class NagResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $modelLabel = 'Faktura';
+
+    protected static ?string $pluralModelLabel = 'Faktury';
+
 
     public static function form(Form $form): Form
     {
@@ -41,16 +45,15 @@ class NagResource extends Resource
                 TextColumn::make('numer'),
                 TextColumn::make('opis'),
                 TextColumn::make('numerdok'),
-                TextColumn::make('logo'),
-                TextColumn::make('logop'),
+                TextColumn::make('logo')->label('Logo odbiorcy'),
+                TextColumn::make('logop')->label('Logo płatnika'),
                 TextColumn::make('recipient.nazwa')->wrap()->label('Odbiorca'),
                 TextColumn::make('payer.nazwa')->wrap()->label('Płatnik'),
-
             ])
             ->filters([
                 Filter::make('numer')
                     ->form([
-                        TextInput::make('numer')
+                        TextInput::make('numer')->debounce('1000ms')
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query->when(
@@ -60,12 +63,32 @@ class NagResource extends Resource
                     }),
                 Filter::make('opis')
                     ->form([
-                        TextInput::make('opis')
+                        TextInput::make('opis')->debounce('1000ms')
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query->when(
                             $data['opis'],
                             fn (Builder $query, $opis): Builder => $query->where('opis', 'like', '%' . $opis . '%')
+                        );
+                    }),
+                Filter::make('logo')
+                    ->form([
+                        TextInput::make('logo')->label('Logo odbiorcy')->debounce('1000ms')
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query->when(
+                            $data['logo'],
+                            fn (Builder $query, $logo): Builder => $query->where('logo', 'like', '%' . $logo . '%')
+                        );
+                    }),
+                Filter::make('logop')
+                    ->form([
+                        TextInput::make('logop')->label('Logo płatnika')->debounce('1000ms')
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query->when(
+                            $data['logop'],
+                            fn (Builder $query, $logop): Builder => $query->where('logop', 'like', '%' . $logop . '%')
                         );
                     }),
             ], layout: Layout::AboveContent)

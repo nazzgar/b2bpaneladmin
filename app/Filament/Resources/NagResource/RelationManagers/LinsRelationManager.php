@@ -16,6 +16,10 @@ class LinsRelationManager extends RelationManager
 
     protected static ?string $recordTitleAttribute = 'lp';
 
+    protected static ?string $modelLabel = 'Linijka';
+
+    protected static ?string $pluralModelLabel = 'Linijki';
+
     public static function form(Form $form): Form
     {
         return $form
