@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lins', function (Blueprint $table) {
+            $table->index('id');
             $table->integer('nagid');
             $table->foreign('nagid')->references('nagid')->on('nags');
             $table->integer('lp');
