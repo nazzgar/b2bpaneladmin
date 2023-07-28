@@ -3,3 +3,4 @@ TODO: sprawdz czy korekty mają wystarczające dane. Może kolumna isChange jest
 TODO: filamentphp admin panel
 TODO: powiązania faktur z korektami (nie wiem jeszcze czy to jest konieczne)
 TODO: przy pobieraniu nipow pozbywaj sie '-', latwiej bedzie szukac
+TODO: zabranie mozliwosci usuwania rekordow
