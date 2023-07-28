@@ -40,6 +40,7 @@ class NagResource extends Resource
                 TextColumn::make('rd'),
                 TextColumn::make('numer'),
                 TextColumn::make('opis'),
+                TextColumn::make('numerdok'),
                 TextColumn::make('logo'),
                 TextColumn::make('logop'),
                 TextColumn::make('recipient.nazwa')->wrap()->label('Odbiorca'),
