@@ -8,6 +8,7 @@ use B2BPanel\SharedModels\Nag;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -78,7 +79,7 @@ class NagResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\LinsRelationManager::class,
         ];
     }
 
