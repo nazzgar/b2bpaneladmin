@@ -15,6 +15,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\Layout;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BezPrawaZwrotuProductResource extends Resource
@@ -73,7 +74,16 @@ class BezPrawaZwrotuProductResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkAction::make('make_returnable')
+                    ->action(fn (Collection $records) => $records->each->makeReturnable())
+                    ->requiresConfirmation()
+                    ->label('Ustaw możliwość zwrotu')
+                    ->deselectRecordsAfterCompletion(),
+                Tables\Actions\BulkAction::make('make_unreturnable')
+                    ->action(fn (Collection $records) => $records->each->makeUnreturnable())
+                    ->requiresConfirmation()
+                    ->label('Cofnij możliwość zwrotu')
+                    ->deselectRecordsAfterCompletion()
             ]);
     }
 
