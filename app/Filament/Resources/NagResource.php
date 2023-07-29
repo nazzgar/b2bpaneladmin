@@ -115,6 +115,7 @@ class NagResource extends Resource
             'index' => Pages\ListNags::route('/'),
             'create' => Pages\CreateNag::route('/create'),
             'edit' => Pages\EditNag::route('/{record}/edit'),
+            'view' => Pages\ViewNag::route('/{record}/view')
         ];
     }
 }
