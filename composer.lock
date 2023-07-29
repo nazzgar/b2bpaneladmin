@@ -2676,6 +2676,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nazzgar/b2bpanel-models.git",
+
                 "reference": "57eb9eaf1ae6572023e4c65f8fa9824b47b1e66b"
             },
             "dist": {
@@ -2686,6 +2687,7 @@
             },
             "require": {
                 "akaunting/laravel-money": "^4.0.1",
+
                 "illuminate/database": "^10.0",
                 "php": "^8.0"
             },
@@ -2709,7 +2711,9 @@
                 "source": "https://github.com/nazzgar/b2bpanel-models/tree/main",
                 "issues": "https://github.com/nazzgar/b2bpanel-models/issues"
             },
+
             "time": "2023-07-28T18:39:33+00:00"
+
         },
         {
             "name": "nesbot/carbon",
