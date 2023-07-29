@@ -21,7 +21,7 @@ class ContractorResource extends Resource
 {
     protected static ?string $model = Contractor::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     protected static ?string $modelLabel = 'Kontrahent';
 

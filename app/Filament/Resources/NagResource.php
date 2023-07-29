@@ -22,7 +22,7 @@ class NagResource extends Resource
 {
     protected static ?string $model = Nag::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $modelLabel = 'Faktura';
 
