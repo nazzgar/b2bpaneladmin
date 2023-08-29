@@ -14,7 +14,8 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "nazzgar/b2bpanel-models": "dev-main"
+        "nazzgar/b2bpanel-models": "dev-main",
+        "spatie/laravel-settings": "^3.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

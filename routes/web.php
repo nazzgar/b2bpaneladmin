@@ -1,5 +1,6 @@
 <?php
 
+use App\Settings\ReturnLimits;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    dd(\B2BPanel\SharedModels\Contractor::all());
+Route::get('/', function (ReturnLimits $limits) {
+    dd($limits->jezykowe_oxford);
     return view('welcome');
 });
