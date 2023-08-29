@@ -12,6 +12,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\Layout;
@@ -45,6 +46,7 @@ class NagResource extends Resource
             ->columns([
                 TextColumn::make('rd'),
                 TextColumn::make('numer'),
+                CheckboxColumn::make('is_returnable')->disabled(),
                 TextColumn::make('opis'),
                 TextColumn::make('numerdok'),
                 TextColumn::make('logo')->label('Logo odbiorcy'),
