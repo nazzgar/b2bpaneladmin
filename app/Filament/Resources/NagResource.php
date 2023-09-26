@@ -7,17 +7,22 @@ use App\Filament\Resources\NagResource\RelationManagers;
 use B2BPanel\SharedModels\Nag;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\Layout;
+use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 
 class NagResource extends Resource
 {
@@ -46,8 +51,8 @@ class NagResource extends Resource
             ->columns([
                 TextColumn::make('rd'),
                 TextColumn::make('numer'),
-                CheckboxColumn::make('is_returnable')->disabled(),
-                TextColumn::make('opis'),
+                CheckboxColumn::make('is_returnable')->label(new HtmlString('Czy wlicza się do </br> sumy wartości zwrotów'))->disabled(),
+                TextColumn::make('opis')->wrap(),
                 TextColumn::make('numerdok'),
                 TextColumn::make('logo')->label('Logo odbiorcy'),
                 TextColumn::make('logop')->label('Logo płatnika'),
@@ -64,6 +69,11 @@ class NagResource extends Resource
                             $data['numer'],
                             fn (Builder $query, $numer): Builder => $query->where('numer', 'like', '%' . $numer . '%')
                         );
+                    })->indicateUsing(function (array $data): ?string {
+                        if (!$data['numer']) {
+                            return null;
+                        }
+                        return "Numer: " . $data['numer'];
                     }),
                 Filter::make('opis')
                     ->form([
@@ -74,6 +84,11 @@ class NagResource extends Resource
                             $data['opis'],
                             fn (Builder $query, $opis): Builder => $query->where('opis', 'like', '%' . $opis . '%')
                         );
+                    })->indicateUsing(function (array $data): ?string {
+                        if (!$data['opis']) {
+                            return null;
+                        }
+                        return "Opis: " . $data['opis'];
                     }),
                 Filter::make('logo')
                     ->form([
@@ -84,6 +99,11 @@ class NagResource extends Resource
                             $data['logo'],
                             fn (Builder $query, $logo): Builder => $query->where('logo', 'like', '%' . $logo . '%')
                         );
+                    })->indicateUsing(function (array $data): ?string {
+                        if (!$data['logo']) {
+                            return null;
+                        }
+                        return "Logo odbiorcy: " . $data['logo'];
                     }),
                 Filter::make('logop')
                     ->form([
@@ -94,13 +114,20 @@ class NagResource extends Resource
                             $data['logop'],
                             fn (Builder $query, $logop): Builder => $query->where('logop', 'like', '%' . $logop . '%')
                         );
+                    })->indicateUsing(function (array $data): ?string {
+                        if (!$data['logop']) {
+                            return null;
+                        }
+                        return "Logo płatnika: " . $data['logop'];
                     }),
+                TernaryFilter::make('is_returnable')->label('Czy wlicza się do sumy wartości zwrotów')
             ], layout: Layout::AboveContent)
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                BulkAction::make('make_returnable')->label('Wliczaj do wartości zwrotów')->requiresConfirmation()->action(fn (Collection $records) => $records->each->update(['is_returnable' => true])),
+                BulkAction::make('make_unreturnable')->label('Nie wliczaj do wartości zwrotów')->requiresConfirmation()->action(fn (Collection $records) => $records->each->update(['is_returnable' => false]))
             ]);
     }
 
