@@ -50,7 +50,7 @@ class NagResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('rd'),
-                TextColumn::make('numer'),
+                TextColumn::make('numer')->disableClick(),
                 CheckboxColumn::make('is_returnable')->label(new HtmlString('Czy wlicza się do </br> sumy wartości zwrotów'))->disabled(),
                 TextColumn::make('opis')->wrap(),
                 TextColumn::make('numerdok'),

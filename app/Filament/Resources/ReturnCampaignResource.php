@@ -37,17 +37,17 @@ class ReturnCampaignResource extends Resource
         return $form
             ->schema([
                 Grid::make(3)->schema([
-                    TextInput::make('name')->label('Nazwa'),
-                    DatePicker::make('date_start')->minDate(now()->toDateString())->rules([new ReturnCampaignDate()])->displayFormat('d-m-Y')->label('Data początkowa'),
-                    DatePicker::make('date_end')->afterOrEqual('date_start')->rules([new ReturnCampaignDate()])->minDate(now()->toDateString())->displayFormat('d-m-Y')->label('Data końcowa'),
+                    TextInput::make('name')->label('Nazwa')->required(),
+                    DatePicker::make('date_start')->minDate(now()->toDateString())->rules([new ReturnCampaignDate()])->displayFormat('d-m-Y')->label('Data początkowa')->required(),
+                    DatePicker::make('date_end')->afterOrEqual('date_start')->rules([new ReturnCampaignDate()])->minDate(now()->toDateString())->displayFormat('d-m-Y')->label('Data końcowa')->required(),
                 ]),
                 Section::make('Domyślne limity')
                     ->schema([
-                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)->step(0.05)
+                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
+                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
+                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
+                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
+                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0)
                     ])
                     ->columns(5)
             ]);

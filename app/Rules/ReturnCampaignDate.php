@@ -21,7 +21,11 @@ class ReturnCampaignDate implements DataAwareRule, ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $return_campaigns = ReturnCampaign::whereDate('date_end', '>=', Carbon::today()->toDateString())->where('id', '!=', $this->data['data']['id'])->get();
+        $return_campaigns = ReturnCampaign::whereDate('date_end', '>=', Carbon::today()->toDateString())
+            ->when(array_key_exists('id', $this->data['data']), function ($query) {
+                $query->where('id', '!=', $this->data['data']['id']);
+            })
+            ->get();
 
         $date_start = Carbon::create($this->data['data']['date_start'])->addDay(-1);
 
