@@ -42,6 +42,7 @@ class ReturnCampaignResource extends Resource
                     DatePicker::make('date_end')->afterOrEqual('date_start')->rules([new ReturnCampaignDate()])->minDate(now()->toDateString())->displayFormat('d-m-Y')->label('Data końcowa')->required(),
                 ]),
                 Section::make('Domyślne limity')
+                    ->description('Wartości w zakresie 0 - 1, gdzie 0 to 0% a 1 to 100%')
                     ->schema([
                         TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
                         TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
