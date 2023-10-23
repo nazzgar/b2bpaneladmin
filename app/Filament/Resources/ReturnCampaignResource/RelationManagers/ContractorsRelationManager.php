@@ -54,10 +54,10 @@ class ContractorsRelationManager extends RelationManager
             ])
             ->headerActions([
                 AttachAction::make()->label('Dołącz jednego')->color('primary'),
-                Action::make('attach_all')->label('Dołącz wszystkich')->button()->color('secondary')->requiresConfirmation()->action(function (ContractorsRelationManager $livewire) {
+                Action::make('attach_all')->label('Dołącz wszystkich')->button()->requiresConfirmation()->action(function (ContractorsRelationManager $livewire) {
                     $livewire->ownerRecord->contractors()->syncWithoutDetaching(Contractor::all());
                 }),
-                Action::make('detach_all')->label('Odłącz wszystkich')->button()->color('secondary')->requiresConfirmation()->action(function (ContractorsRelationManager $livewire) {
+                Action::make('detach_all')->label('Odłącz wszystkich')->button()->color('danger')->requiresConfirmation()->action(function (ContractorsRelationManager $livewire) {
                     $livewire->ownerRecord->contractors()->sync([]);
                 }),
                 Action::make('attach_many')->label('Dołączanie wielu')->button()->form([
@@ -65,7 +65,7 @@ class ContractorsRelationManager extends RelationManager
 logo2,
 logo3...')->required()
                 ])->action('attach_many'),
-                Action::make('detach_many')->label('Odłączanie wielu')->button()->form([
+                Action::make('detach_many')->label('Odłączanie wielu')->button()->color('danger')->form([
                     Textarea::make('logos')->placeholder('logo1,
 logo2,
 logo3...')->required()
