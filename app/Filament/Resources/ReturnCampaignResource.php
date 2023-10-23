@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReturnCampaignResource\Pages;
 use App\Filament\Resources\ReturnCampaignResource\RelationManagers;
+use App\Filament\Resources\ReturnCampaignResource\RelationManagers\ContractorsRelationManager;
 use App\Rules\ReturnCampaignDate;
 use B2BPanel\SharedModels\ReturnCampaign;
 use Filament\Forms;
@@ -12,6 +13,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -84,7 +86,7 @@ class ReturnCampaignResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ContractorsRelationManager::class,
         ];
     }
 
