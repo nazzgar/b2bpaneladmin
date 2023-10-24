@@ -42,6 +42,8 @@ class ReturnCampaignResource extends Resource
                     TextInput::make('name')->label('Nazwa')->required(),
                     DatePicker::make('date_start')->minDate(now()->toDateString())->rules([new ReturnCampaignDate()])->displayFormat('d-m-Y')->label('Data początkowa')->required(),
                     DatePicker::make('date_end')->afterOrEqual('date_start')->rules([new ReturnCampaignDate()])->minDate(now()->toDateString())->displayFormat('d-m-Y')->label('Data końcowa')->required(),
+                    DatePicker::make('invoices_from')->displayFormat('d-m-Y')->label('Data faktur od')->required(),
+                    DatePicker::make('invoices_to')->afterOrEqual('invoices_from')->displayFormat('d-m-Y')->label('Data faktur do')->required(),
                 ]),
                 Section::make('Domyślne limity')
                     ->description('Wartości w zakresie 0 - 1, gdzie 0 to 0% a 1 to 100%')
@@ -62,7 +64,9 @@ class ReturnCampaignResource extends Resource
             ->columns([
                 TextColumn::make('name')->label('Nazwa'),
                 TextColumn::make('date_start')->date('d-m-Y')->sortable()->label('Data początkowa'),
-                TextColumn::make('date_end')->date('d-m-Y')->sortable()->label('Data końcowa')
+                TextColumn::make('date_end')->date('d-m-Y')->sortable()->label('Data końcowa'),
+                TextColumn::make('invoices_from')->date('d-m-Y')->sortable()->label('Data faktur od'),
+                TextColumn::make('invoices_to')->date('d-m-Y')->sortable()->label('Data faktur do')
             ])
             ->filters([
                 Filter::make('name')
