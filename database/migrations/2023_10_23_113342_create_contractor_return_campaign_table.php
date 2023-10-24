@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('contractor_return_campaign', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Contractor::class)->constrained('contractors', 'logo');
-            $table->foreignIdFor(ReturnCampaign::class)->constrained();
+            $table->foreignIdFor(Contractor::class)->constrained('contractors', 'logo')->cascadeOnDelete();
+            $table->foreignIdFor(ReturnCampaign::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
