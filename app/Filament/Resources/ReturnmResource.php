@@ -45,7 +45,7 @@ class ReturnmResource extends Resource
             ->filters([
                 Filter::make('is_current')->label('Pokaż zwroty tylko aktywnej akcji zwrotów')->query(function ($query) {
                     $current_return_campaign = ReturnCampaign::current();
-                    return $query->where('return_campaign_id', $current_return_campaign->id);
+                    return $query->where('return_campaign_id', $current_return_campaign->id ?? 0);
                 })->default()
             ])
             ->actions([
