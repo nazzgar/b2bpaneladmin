@@ -23,7 +23,7 @@ class EditReturnCampaign extends EditRecord
     /* https://filamentphp.com/docs/2.x/admin/resources/editing-records#customizing-data-before-filling-the-form */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
-        $main = Arr::only($data, ['name', 'date_start', 'date_end']);
+        $main = Arr::only($data, ['name', 'date_start', 'date_end', 'invoices_from', 'invoices_to']);
 
         $return_limit_value_object = new ReturnLimit(
             $data['zabawki'],
