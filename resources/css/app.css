@@ -1,0 +1,19 @@
+
+
+.message {
+    padding: 1rem;
+    color: var(--dark);
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+    border-radius: 14px;
+}
+
+.message-success {
+    --dark: #03543f;
+    --light: #f3faf7;
+}
+
+.message-error {
+    --dark: rgb(155, 28, 28);
+    --light: rgb(253, 242, 242);
+}
