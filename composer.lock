@@ -2723,12 +2723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nazzgar/b2bpanel-models.git",
-                "reference": "c0070f64dcd6c0d6e4c1215285537b8fa38ba029"
+                "reference": "81cc6bc4bfecfcaa1b33e91c85148db6026d767c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nazzgar/b2bpanel-models/zipball/c0070f64dcd6c0d6e4c1215285537b8fa38ba029",
-                "reference": "c0070f64dcd6c0d6e4c1215285537b8fa38ba029",
+                "url": "https://api.github.com/repos/nazzgar/b2bpanel-models/zipball/81cc6bc4bfecfcaa1b33e91c85148db6026d767c",
+                "reference": "81cc6bc4bfecfcaa1b33e91c85148db6026d767c",
                 "shasum": ""
             },
             "require": {
@@ -2757,7 +2757,7 @@
                 "source": "https://github.com/nazzgar/b2bpanel-models/tree/main",
                 "issues": "https://github.com/nazzgar/b2bpanel-models/issues"
             },
-            "time": "2023-10-24T09:15:43+00:00"
+            "time": "2023-10-25T12:07:21+00:00"
         },
         {
             "name": "nesbot/carbon",
