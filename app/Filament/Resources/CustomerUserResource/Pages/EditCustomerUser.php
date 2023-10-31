@@ -7,6 +7,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Pages\Actions\Action;
+use Filament\Resources\Form;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,6 +36,13 @@ class EditCustomerUser extends EditRecord
                         ->send();
                 }),
             Actions\DeleteAction::make(),
+        ];
+    }
+
+    protected function getFormSchema(): array
+    {
+        return [
+            TextInput::make('email'),
         ];
     }
 }
