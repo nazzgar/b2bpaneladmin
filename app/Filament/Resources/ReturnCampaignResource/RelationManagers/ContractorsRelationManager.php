@@ -152,11 +152,11 @@ logo3...')->required()
                     })->color('danger'),
                 Action::make('set_return_limit')->label('Ustaw limit')->modalSubheading('Ustawiony limit będzie aktywny u wszystkich użytkowników podpiętych do danego kontrahenta')
                     ->form([
-                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1)->step(0.05),
-                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)->step(0.05)
+                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1),
+                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1),
+                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1),
+                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1),
+                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)
                     ])->mountUsing(function (Forms\ComponentContainer $form, Contractor $record, ContractorsRelationManager $livewire) {
 
                         $return_limit = $record->customerUsers()->first()->returnLimit->firstWhere('return_campaign_id', $livewire->ownerRecord->id)?->limits;

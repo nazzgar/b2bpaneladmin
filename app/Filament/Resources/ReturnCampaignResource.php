@@ -48,11 +48,11 @@ class ReturnCampaignResource extends Resource
                 Section::make('Domyślne limity')
                     ->description('Wartości w zakresie 0 - 1, gdzie 0 to 0% a 1 to 100%')
                     ->schema([
-                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
-                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
-                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
-                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0),
-                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)->step(0.05)->default(0)
+                        TextInput::make('zabawki')->numeric()->minValue(0)->maxValue(1)->default(0),
+                        TextInput::make('jezykowe')->numeric()->minValue(0)->maxValue(1)->default(0),
+                        TextInput::make('jezykowe_oxford')->numeric()->minValue(0)->maxValue(1)->default(0),
+                        TextInput::make('edukacyjne')->numeric()->minValue(0)->maxValue(1)->default(0),
+                        TextInput::make('pozostale')->numeric()->minValue(0)->maxValue(1)->default(0)
                     ])
                     ->columns(5)
             ]);
